@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\CreateConversationController;
 use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +21,13 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('listings', [ListingController::class, 'index'])->name('listings.index');
+Route::get('listings/create', [ListingController::class, 'create'])->name('listings.create');
 Route::get('listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
+
+Route::get('listings/{listing}/conversations/create', CreateConversationController::class)->name('conversations.create');
+
+Route::get('conversations', [ConversationController::class, 'index'])->name('conversations.index');
+Route::get('conversations/{conversation}', [ConversationController::class, 'show'])->name('conversations.show');
 
 Route::view('about', 'about')->name('about');
 

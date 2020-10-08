@@ -35,6 +35,10 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6 space-x-8">
                 @auth
+                    <x-nav-link href="{{ route('conversations.index') }}">
+                        {{ __('Conversations') }}
+                    </x-nav-link>
+
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -78,6 +82,10 @@
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
+
+                    <x-nav-link href="{{ route('listings.create') }}">
+                        {{ __('Create listing') }}
+                    </x-nav-link>
                 @else
                     <x-nav-link href="{{ route('login') }}">
                         {{ __('Login') }}

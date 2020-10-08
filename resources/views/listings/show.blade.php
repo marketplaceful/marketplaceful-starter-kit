@@ -20,9 +20,9 @@
                             <p class="mt-8 text-xl text-gray-500 leading-8">{{ $listing->description }}</p>
 
                             <div class="flex mt-6">
-                                <button class="flex bg-green-400 text-white py-4 px-5 rounded-lg font-medium">
-                                    Request to buy
-                                </button>
+                                <a href="{{ route('conversations.create', $listing->slug) }}" class="flex bg-green-400 text-white py-4 px-5 rounded-lg font-medium">
+                                    Contact seller
+                                </a>
                             </div>
                         </div>
                     </div>
