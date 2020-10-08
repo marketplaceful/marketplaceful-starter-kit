@@ -1,6 +1,11 @@
 <form wire:submit.prevent="createListing">
-    <div>
-        <textarea class="form-textarea w-full mb-2" id="body" rows="3" wire:model="body"></textarea>
-        <button type="submit" class="block w-full text-center bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded">Start conversation</button>
+    <x-mkt-label for="body" value="Message" />
+    <x-mkt-textarea id="body" rows="3" class="mt-1 block w-full" wire:model.defer="body" placeholder="Type your message" />
+    <x-mkt-input-error for="description" class="mt-2" />
+
+    <div class="mt-4">
+        <x-mkt-button>
+            Start conversation
+        </x-mkt-button>
     </div>
 </form>

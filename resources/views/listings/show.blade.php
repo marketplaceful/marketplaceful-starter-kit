@@ -15,6 +15,17 @@
                                 € {{ $listing->price_for_humans }}
                             </div>
 
+                            <div class="mt-6 flex items-center">
+                                <div class="flex-shrink-0">
+                                    <img class="h-10 w-10 rounded-full" src="{{ $listing->author->profile_photo_url }}" />
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm leading-5 font-medium text-gray-900">
+                                        {{ $listing->author->name }}
+                                    </p>
+                                </div>
+                            </div>
+
                             <div class="flex mt-6"></div>
 
                             <p class="mt-8 text-xl text-gray-500 leading-8">{{ $listing->description }}</p>
