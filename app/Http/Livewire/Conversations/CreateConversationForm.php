@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire\Conversations;
 
+use Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Marketplaceful\Actions\CreateConversation;
 use Marketplaceful\Models\Listing;
 use Marketplaceful\Models\Conversation;
 
@@ -11,29 +13,21 @@ class CreateConversationForm extends Component
 {
     public Listing $listing;
 
-    public $body = [];
+    public $state = [
+        'body' => '',
+    ];
 
-    public function createListing()
+    public function createConversation(CreateConversation $creator)
     {
-        $this->validate([
-            'body' => 'required',
-        ]);
+        $this->resetErrorBag();
 
-        $conversation = Conversation::create([
-            'uuid' => Str::uuid(),
-            'listing_id' => $this->listing->id,
-            'last_message_at' => now(),
-        ]);
+        $creator->create(
+            Auth::user(),
+            $this->listing,
+            $this->state,
+        );
 
-        $conversation->messages()->create([
-            'user_id' => auth()->id(),
-            'body' => $this->body,
-        ]);
-
-        $conversation->users()->sync([
-            auth()->id(),
-            $this->listing->author->id,
-        ]);
+        return redirect(route('conversations.index'));
     }
 
     public function render()

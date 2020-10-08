@@ -2,35 +2,28 @@
 
 namespace App\Http\Livewire\Conversations;
 
+use Auth;
 use Livewire\Component;
+use Marketplaceful\Actions\ReplyConversation;
 use Marketplaceful\Models\Conversation;
 
 class ReplyConversationForm extends Component
 {
     public Conversation $conversation;
 
-    public $body = '';
+    public $state = [
+        'body' => '',
+    ];
 
-    public function reply()
+    public function replyConversation(ReplyConversation $replicator)
     {
-        $this->validate([
-            'body' => 'required',
-        ]);
+        $this->resetErrorBag();
 
-        $message = $this->conversation->messages()->create([
-            'user_id' => auth()->id(),
-            'body' => $this->body,
-        ]);
-
-        $this->conversation->update([
-            'last_message_at' => now(),
-        ]);
-
-        foreach ($this->conversation->others as  $user) {
-            $user->conversations()->updateExistingPivot($this->conversation, [
-                'read_at' => now(),
-            ]);
-        }
+        $message = $replicator->reply(
+            Auth::user(),
+            $this->conversation,
+            $this->state,
+        );
 
         $this->emit('message.created', $message->id);
 
