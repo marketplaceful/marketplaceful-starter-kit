@@ -14,7 +14,7 @@ class ListingController extends Controller
 
     public function index()
     {
-        $listings = Listing::get();
+        $listings = Listing::simplePaginate(9);
 
         return view('listings.index', [
             'listings' => $listings,

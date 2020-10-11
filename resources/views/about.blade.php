@@ -1,9 +1,9 @@
 <x-layouts.app>
-    <div>
-        <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-            <main class="mt-8 md:mt-12">
-                Our Marketplace
-            </main>
-        </div>
+    <div class="max-w-5xl mx-auto relative mt-16">
+        <article>
+            <header class="mb-16">
+                <h1 class="text-4xl lg:text-6xl font-bold">About</h1>
+            </header>
+        </article>
     </div>
 </x-layouts.app>

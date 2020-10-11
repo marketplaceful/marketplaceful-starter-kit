@@ -1,10 +1,10 @@
 <x-layouts.base>
-    <div class="min-h-screen">
+    <div class="bg-white font-sans leading-normal text-gray-800 px-4 sm:px-10">
         @livewire('navigation-dropdown')
 
-        <main>
-            {{ $slot }}
-        </main>
+        {{ $slot }}
+
+        <x-footer />
     </div>
 
     @stack('modals')

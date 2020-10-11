@@ -1,6 +1,10 @@
 <x-layouts.app>
     <div>
-        <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto relative mt-16">
+            <header class="mb-16">
+                <h1 class="text-4xl lg:text-6xl font-bold">Profile</h1>
+            </header>
+
             @livewire('profile.update-profile-information-form')
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))

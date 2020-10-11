@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02641bef0ce74b831fc10bd5c3a8e5e2",
+    "content-hash": "c462fb96cec1ebbce940513f4169d303",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -106,6 +106,81 @@
             "description": "BaconQrCode is a QR code generator for PHP.",
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "time": "2020-07-30T16:40:58+00:00"
+        },
+        {
+            "name": "blade-ui-kit/blade-icons",
+            "version": "0.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blade-ui-kit/blade-icons.git",
+                "reference": "b93505c65a1fc095df517d5640bae295779411e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/b93505c65a1fc095df517d5640bae295779411e6",
+                "reference": "b93505c65a1fc095df517d5640bae295779411e6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^7.14|^8.0",
+                "illuminate/filesystem": "^7.14|^8.0",
+                "illuminate/support": "^7.14|^8.0",
+                "illuminate/view": "^7.14|^8.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "mockery/mockery": "^1.3",
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BladeUI\\Icons\\BladeIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BladeUI\\Icons\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Wathan",
+                    "email": "adam.wathan@gmail.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "email": "dries@vints.io",
+                    "homepage": "https://driesvints.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to easily make use of icons in your Laravel Blade views.",
+            "homepage": "https://github.com/blade-ui-kit/blade-icons",
+            "keywords": [
+                "blade",
+                "icons",
+                "laravel",
+                "svg"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/driesvints",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-09-04T11:36:46+00:00"
         },
         {
             "name": "brick/math",
@@ -1767,16 +1842,18 @@
             "dist": {
                 "type": "path",
                 "url": "../laravel-marketplaceful",
-                "reference": "1f21325f16e50d45b791532f758803a2ae427b75"
+                "reference": "237953e1c6bc885672106c911fc3f9fac1b9d930"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
                 "laravel/sanctum": "^2.6",
                 "livewire/livewire": "^2.0",
                 "php": "^7.4",
+                "pixelfear/composer-dist-plugin": "^0.1.4",
                 "radiocubito/laravel-package-tools": "^1.0"
             },
             "require-dev": {
+                "barryvdh/laravel-ide-helper": "^2.8",
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "orchestra/testbench": "^6.0",
                 "pestphp/pest": "^0.3.6",
@@ -1786,6 +1863,10 @@
             },
             "type": "library",
             "extra": {
+                "download-dist": {
+                    "url": "https://github.com/marketplaceful/laravel-marketplaceful/releases/download/{$version}/dist.tar.gz",
+                    "path": "resources/dist"
+                },
                 "laravel": {
                     "providers": [
                         "Marketplaceful\\MarketplacefulServiceProvider"
@@ -1821,6 +1902,12 @@
                 ],
                 "please": [
                     "vendor/bin/pkg-tools"
+                ],
+                "ide-helper": [
+                    "vendor/bin/testbench ide-helper:generate"
+                ],
+                "ide-helper-models": [
+                    "vendor/bin/testbench ide-helper:models --dir=src/Models"
                 ]
             },
             "license": [
@@ -2450,6 +2537,47 @@
                 }
             ],
             "time": "2020-07-20T17:29:33+00:00"
+        },
+        {
+            "name": "pixelfear/composer-dist-plugin",
+            "version": "v0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pixelfear/composer-dist-plugin.git",
+                "reference": "d63f03a2ee2152e19d6936456c7075362cfd4cdf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pixelfear/composer-dist-plugin/zipball/d63f03a2ee2152e19d6936456c7075362cfd4cdf",
+                "reference": "d63f03a2ee2152e19d6936456c7075362cfd4cdf",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1 || ^2.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.10",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "^8.4"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Pixelfear\\ComposerDistPlugin\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pixelfear\\ComposerDistPlugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Downloads distributable assets to be used in packages so you don't have to commit them.",
+            "funding": [
+                {
+                    "url": "https://github.com/jasonvarga",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-06-10T21:09:47+00:00"
         },
         {
             "name": "pragmarx/google2fa",
@@ -3185,12 +3313,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "04c3a31fe8ea94b42c9e2d1acc93d19782133b00"
+                "reference": "ae789a8a2ad189ce7e8216942cdb9b77319f5eb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/04c3a31fe8ea94b42c9e2d1acc93d19782133b00",
-                "reference": "04c3a31fe8ea94b42c9e2d1acc93d19782133b00",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ae789a8a2ad189ce7e8216942cdb9b77319f5eb8",
+                "reference": "ae789a8a2ad189ce7e8216942cdb9b77319f5eb8",
                 "shasum": ""
             },
             "require": {
