@@ -35,7 +35,3 @@ Route::get('conversations', [ConversationController::class, 'index'])->name('con
 Route::get('conversations/{conversation:uuid}', [ConversationController::class, 'show'])->name('conversations.show');
 
 Route::view('about', 'about')->name('about');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
