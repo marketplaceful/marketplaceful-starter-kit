@@ -35,10 +35,16 @@
                         </x-nav-link>
 
                         <div class="flex items-center space-x-3">
-                            <a href="{{ route('conversations.index') }}" class="p-1 border-2 border-transparent text-gray-500 rounded-full hover:text-gray-800 focus:outline-none focus:text-white focus:bg-gray-800" aria-label="Inbox">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                                </svg>
+                            <a wire:poll href="{{ route('conversations.index') }}" class="p-1 border-2 border-transparent text-gray-500 rounded-full hover:text-gray-800 focus:outline-none focus:text-white focus:bg-gray-800" aria-label="Inbox">
+                                <div class="relative">
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                    </svg>
+
+                                    @if (Auth::user()->hasUnReadConversations())
+                                        <span class="absolute top-0 right-0 block h-2.5 w-2.5 transform -translate-y-1/2 translate-x-1/2 rounded-full text-white shadow-solid bg-green-400"></span>
+                                    @endif
+                                </div>
                             </a>
 
                             <x-jet-dropdown align="right" width="48">

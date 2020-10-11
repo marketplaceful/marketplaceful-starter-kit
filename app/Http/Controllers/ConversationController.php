@@ -15,12 +15,18 @@ class ConversationController extends Controller
     public function index(Request $request)
     {
         return view('conversations.index', [
-            'conversations' => $request->user()->conversations,
+            'conversations' => $request->user()->conversations()->orderBy('last_message_at', 'desc')->get(),
         ]);
     }
 
-    public function show(Conversation $conversation)
+    public function show(Conversation $conversation, Request $request)
     {
+        $this->authorize('show', $conversation);
+
+        $request->user()->conversations()->updateExistingPivot($conversation, [
+            'read_at' => now(),
+        ]);
+
         return view('conversations.show', [
             'conversation' => $conversation,
             'listing' => $conversation->listing,
