@@ -19,10 +19,11 @@ class ConversationController extends Controller
         ]);
     }
 
-    public function show($conversationUuid)
+    public function show(Conversation $conversation)
     {
         return view('conversations.show', [
-            'conversation' => Conversation::whereUuid($conversationUuid)->firstOrFail(),
+            'conversation' => $conversation,
+            'listing' => $conversation->listing,
         ]);
     }
 }

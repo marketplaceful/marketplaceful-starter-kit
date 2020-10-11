@@ -1,6 +1,6 @@
-<div>
+<div class="rounded border border-gray-200 divide-y divide-y divide-gray-200 overflow-hidden">
     @foreach($conversations as $conversation)
-        <a href="{{ route('conversations.show', $conversation->uuid) }}" class="block bg-white hover:bg-gray-100 p-4 mb-2 rounded">
+        <a href="{{ route('conversations.show', $conversation->uuid) }}" class="block bg-white hover:bg-gray-100 p-4">
             <div class="font-bold text-gray-600">
                 @foreach ($conversation->users as $user)
                     {{ $user->conversation_name }}@if ($conversation->users->last() != $user), @endif

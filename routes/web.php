@@ -32,7 +32,7 @@ Route::get('tags', fn () => view('tags.index', ['tags' => Tag::all()]))->name('t
 Route::get('tags/{tag:slug}', fn (Tag $tag) => view('tags.show', ['tag' => $tag, 'listings' => $tag->listings()->simplePaginate(9)]))->name('tags.show');
 
 Route::get('conversations', [ConversationController::class, 'index'])->name('conversations.index');
-Route::get('conversations/{conversation}', [ConversationController::class, 'show'])->name('conversations.show');
+Route::get('conversations/{conversation:uuid}', [ConversationController::class, 'show'])->name('conversations.show');
 
 Route::view('about', 'about')->name('about');
 
