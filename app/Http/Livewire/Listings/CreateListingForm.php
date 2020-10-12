@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use Marketplaceful\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Marketplaceful\Actions\CreateListing;
+use Marketplaceful\Actions\PublishListing;
 
 class CreateListingForm extends Component
 {
@@ -20,16 +21,18 @@ class CreateListingForm extends Component
 
     public $currentTags = [];
 
-    public function createListing(CreateListing $creator)
+    public function createListing(CreateListing $creator, PublishListing $publisher)
     {
         $this->resetErrorBag();
 
-        $creator->create(
+        $listing = $creator->create(
             Auth::user(),
             $this->image
                 ? array_merge($this->state, ['image' => $this->image, 'tags' => $this->currentTags])
                 : array_merge($this->state, ['tags' => $this->currentTags]),
         );
+
+        $publisher->publish(Auth::user(), $listing);
 
         return redirect(route('listings.index'));
     }

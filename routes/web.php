@@ -19,7 +19,7 @@ use Marketplaceful\Models\Tag;
 */
 
 Route::get('/', function () {
-    return view('home', ['listings' => Listing::take(6)->get()]);
+    return view('home', ['listings' => Listing::published()->orderBy('published_at', 'desc')->take(6)->get()]);
 })->name('home');
 
 Route::get('listings', [ListingController::class, 'index'])->name('listings.index');

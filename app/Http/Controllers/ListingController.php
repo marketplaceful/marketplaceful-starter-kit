@@ -14,7 +14,7 @@ class ListingController extends Controller
 
     public function index()
     {
-        $listings = Listing::simplePaginate(9);
+        $listings = Listing::published()->orderBy('published_at', 'desc')->simplePaginate(9);
 
         return view('listings.index', [
             'listings' => $listings,
