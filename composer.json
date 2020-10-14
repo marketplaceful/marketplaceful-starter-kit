@@ -1,9 +1,10 @@
 {
-    "name": "laravel/laravel",
+    "name": "marketplaceful/marketplaceful-starter-kit",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Marketplaceful",
     "keywords": [
-        "framework",
+        "marketplaceful",
+        "starter",
         "laravel"
     ],
     "license": "MIT",
