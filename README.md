@@ -38,6 +38,6 @@ To compile for production again:
 npm run production
 ```
 
-**5. Done!**
+**5. Build!**
 
-If you're using [Laravel Valet](https://laravel.com/docs/valet) (or similar), your site should be available at `http://marketplaceful.test`. You can access the control panel at `http://marketplaceful.test/marketplaceful` and login with your new user.
+If you're using [Laravel Valet](https://laravel.com/docs/valet), your site should be available at `http://marketplaceful.test`. You can access the control panel at `http://marketplaceful.test/marketplaceful` and login with your new user. Build your site, and have fun!
