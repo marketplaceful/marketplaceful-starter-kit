@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Marketplaceful\Traits\MarketplacefulAuthenticatable;
+use Marketplaceful\Traits\InteractsAsMarketplaceUser;
 
 class User extends Authenticatable
 {
@@ -18,7 +18,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-    use MarketplacefulAuthenticatable;
+    use InteractsAsMarketplaceUser;
 
     /**
      * The attributes that are mass assignable.
