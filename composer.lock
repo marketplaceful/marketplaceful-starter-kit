@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b9426fb00f9f669a9b48dba94dc1cc3",
+    "content-hash": "6c66eca2ea33e8f62af39238cb7e38e0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1838,16 +1838,16 @@
         },
         {
             "name": "marketplaceful/laravel-marketplaceful",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/marketplaceful/laravel-marketplaceful.git",
-                "reference": "d1f270773e5e487178fae39a3e60943a2e55d20a"
+                "reference": "b0d862c18dc83fd1892b854139a83c544c9e5dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marketplaceful/laravel-marketplaceful/zipball/d1f270773e5e487178fae39a3e60943a2e55d20a",
-                "reference": "d1f270773e5e487178fae39a3e60943a2e55d20a",
+                "url": "https://api.github.com/repos/marketplaceful/laravel-marketplaceful/zipball/b0d862c18dc83fd1892b854139a83c544c9e5dca",
+                "reference": "b0d862c18dc83fd1892b854139a83c544c9e5dca",
                 "shasum": ""
             },
             "require": {
@@ -1912,7 +1912,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-12T18:56:49+00:00"
+            "time": "2020-10-15T00:39:48+00:00"
         },
         {
             "name": "mnapoli/silly",
@@ -3388,7 +3388,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-18T14:27:32+00:00"
+            "time": "2020-10-07T15:23:00+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3820,16 +3820,16 @@
         },
         {
             "name": "symfony/http-client-contracts",
-            "version": "v2.2.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client-contracts.git",
-                "reference": "3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3"
+                "reference": "41db680a15018f9c1d4b23516059633ce280ca33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
-                "reference": "3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/41db680a15018f9c1d4b23516059633ce280ca33",
+                "reference": "41db680a15018f9c1d4b23516059633ce280ca33",
                 "shasum": ""
             },
             "require": {
@@ -3840,8 +3840,9 @@
             },
             "type": "library",
             "extra": {
+                "branch-version": "2.3",
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-main": "2.3-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -3891,7 +3892,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-07T11:33:47+00:00"
+            "time": "2020-10-14T17:08:19+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -6714,16 +6715,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.3.8",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "e8fed9c382cd1d02b5606688576a35619afdf82c"
+                "reference": "9fc6c3d3de5271a1b94cff19dce2c9295abf0ffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/e8fed9c382cd1d02b5606688576a35619afdf82c",
-                "reference": "e8fed9c382cd1d02b5606688576a35619afdf82c",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/9fc6c3d3de5271a1b94cff19dce2c9295abf0ffa",
+                "reference": "9fc6c3d3de5271a1b94cff19dce2c9295abf0ffa",
                 "shasum": ""
             },
             "require": {
@@ -6782,7 +6783,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-10-01T23:01:14+00:00"
+            "time": "2020-10-14T08:59:59+00:00"
         },
         {
             "name": "facade/ignition-contracts",
