@@ -8,7 +8,7 @@
             </div>
 
             <p class="text-gray-600 flex items-center">
-                @unless (auth()->user()->hasRead($conversation))
+                @unless (auth()->user()->hasReadConversation($conversation))
                     <span class="bg-purple-200 mr-2 h-4 w-4 rounded-full"></span>
                 @endif
                 <span>{{ $conversation->messages->first()->body }}</span>
