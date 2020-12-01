@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Gate::define('viewMarketplaceful', fn ($user = null) => optional($user)->isSuper());
+        Gate::define('viewMarketplaceful', fn ($user = null) => optional($user)->isOwner());
     }
 }
