@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->super()->has(Listing::factory()
+        User::factory()->owner()->has(Listing::factory()
             ->count(10)
             ->published()
             ->state(new Sequence(

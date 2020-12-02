@@ -18,10 +18,10 @@ cp .env.example .env && php artisan key:generate
 php artisan migrate
 ```
 
-**3. Make a new user** – you'll want it to be a `super` so you have access to everything.
+**3. Make a new user** – you'll want it to be an `owner` so you have access to everything.
 
 ```
-php artisan make:user
+php artisan marketplaceful:make-user
 ```
 
 **4. Recompile the CSS** (optional)
