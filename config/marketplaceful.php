@@ -25,7 +25,7 @@ return [
 
         'github' => [
             'name' => 'Github',
-            'url' => 'https://github.com/marketplaceful/laravel-marketplaceful',
+            'url' => 'https://github.com/marketplaceful/marketplaceful',
             'icon' => 'github',
         ],
 
