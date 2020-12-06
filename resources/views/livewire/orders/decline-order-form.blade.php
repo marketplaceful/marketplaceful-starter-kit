@@ -1,3 +1,3 @@
-<x-mkt-button wire:click="declineOrder" wire:loading.attr="disabled">
+<x-mkt-secondary-button wire:click="declineOrder" wire:loading.attr="disabled">
     Decline
-</x-mkt-button>
+</x-mkt-secondary-button>

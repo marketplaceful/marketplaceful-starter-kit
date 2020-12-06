@@ -6,6 +6,7 @@ use Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Marketplaceful\Actions\CreateConversation;
+use Marketplaceful\Actions\CreateOrder;
 use Marketplaceful\Models\Listing;
 use Marketplaceful\Models\Conversation;
 
@@ -13,19 +14,21 @@ class CreateConversationForm extends Component
 {
     public Listing $listing;
 
-    public $state = [
-        'body' => '',
-    ];
+    public $message;
 
-    public function createConversation(CreateConversation $creator)
+    public function createConversation(CreateOrder $creator)
     {
         $this->resetErrorBag();
 
-        $creator->create(
+        $order = $creator->create(
             Auth::user(),
             $this->listing,
-            $this->state,
+            collect()
+                ->when($this->message, fn ($state) => $state->merge(['message' => $this->message]))
+                ->toArray()
         );
+
+        $order->markAsOpen();
 
         return redirect(route('conversations.index'));
     }

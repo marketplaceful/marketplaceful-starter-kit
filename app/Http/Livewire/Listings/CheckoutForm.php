@@ -6,6 +6,7 @@ use App\Models\User;
 use Livewire\Component;
 use Marketplaceful\Models\Listing;
 use Illuminate\Support\Facades\Auth;
+use Marketplaceful\Actions\CreateConversation;
 use Marketplaceful\Actions\CreateOrder;
 
 class CheckoutForm extends Component
@@ -14,19 +15,20 @@ class CheckoutForm extends Component
 
     public $message;
 
-    public $state = [];
-
-    public function createOrder(CreateOrder $creator)
+    public function createOrder(CreateOrder $orderCreator, CreateConversation $conversationCreator)
     {
         $this->resetErrorBag();
 
-        $creator->create(
+        $order = $orderCreator->create(
             Auth::user(),
-            $this->listing,
-            collect()
-                ->when($this->message, fn () => ['message' => $this->message])
-                ->toArray()
+            $this->listing
         );
+
+        $order->markAsPending();
+
+        if ($this->message) {
+            $conversationCreator->create(Auth::user(), $order, ['body' => $this->message]);
+        }
 
         return redirect(route('conversations.index'));
     }

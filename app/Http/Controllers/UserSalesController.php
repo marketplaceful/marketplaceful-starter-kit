@@ -15,7 +15,7 @@ class UserSalesController extends Controller
     public function index(Request $request)
     {
         return view('sales.index', [
-            'orders' => $request->user()->sales()->paginate(10),
+            'orders' => $request->user()->sales,
         ]);
     }
 
@@ -23,6 +23,7 @@ class UserSalesController extends Controller
     {
         return view('sales.show', [
             'order' => $order,
+            'listing' => $order->listing,
             'user' => $request->user(),
         ]);
     }
