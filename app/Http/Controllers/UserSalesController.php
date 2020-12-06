@@ -15,12 +15,14 @@ class UserSalesController extends Controller
     public function index(Request $request)
     {
         return view('sales.index', [
-            'orders' => $request->user()->sales,
+            'orders' => $request->user()->sales()->latest()->get(),
         ]);
     }
 
     public function show(Order $order, Request $request)
     {
+        abort_unless($order->provider()->is($request->user()), 401);
+
         return view('sales.show', [
             'order' => $order,
             'listing' => $order->listing,

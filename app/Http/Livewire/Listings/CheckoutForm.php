@@ -30,7 +30,7 @@ class CheckoutForm extends Component
             $conversationCreator->create(Auth::user(), $order, ['body' => $this->message]);
         }
 
-        return redirect(route('conversations.index'));
+        return redirect(route('user.orders.show', $order));
     }
 
     public function render()

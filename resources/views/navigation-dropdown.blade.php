@@ -64,6 +64,14 @@
                                         {{ __('Profile') }}
                                     </x-jet-dropdown-link>
 
+                                    <x-jet-dropdown-link href="{{ route('user.orders.index') }}">
+                                        {{ __('Orders') }}
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('user.sales.index') }}">
+                                        {{ __('Sales') }}
+                                    </x-jet-dropdown-link>
+
                                     <div class="border-t border-gray-100"></div>
 
                                     <!-- Authentication -->

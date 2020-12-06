@@ -41,8 +41,12 @@
                     </section>
                 </span>
                 <div class="w-full grid grid-cols-1 row-gap-5">
-                    <livewire:conversations.message-list :messages="$order->conversation->messages" />
-                    <livewire:conversations.reply-conversation-form :conversation="$order->conversation" />
+                    @if ($order->conversation)
+                        <livewire:conversations.message-list :messages="$order->conversation->messages" />
+                        <livewire:conversations.reply-conversation-form :conversation="$order->conversation" />
+                    @else
+                        <livewire:conversations.create-conversation-form :order="$order" />
+                    @endif
                 </div>
             </div>
         </article>
