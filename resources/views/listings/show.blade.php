@@ -30,8 +30,8 @@
                         <p class="mt-8 text-lg leading-8">{{ $listing->description }}</p>
 
                         <div class="flex mt-6">
-                            <a href="{{ route('conversations.create', $listing->slug) }}" class="flex bg-purple-600 text-white py-4 px-5 rounded-lg font-medium">
-                                Contact seller
+                            <a href="{{ route('checkout.create', $listing->slug) }}" class="flex bg-purple-600 text-white py-4 px-5 rounded-lg font-medium">
+                                Request to buy
                             </a>
                         </div>
                     </div>

@@ -29,7 +29,7 @@ class ConversationController extends Controller
 
         return view('conversations.show', [
             'conversation' => $conversation,
-            'listing' => $conversation->listing,
+            'listing' => $conversation->order->listing,
         ]);
     }
 }

@@ -4,30 +4,30 @@ namespace App\Http\Livewire\Conversations;
 
 use Auth;
 use Livewire\Component;
-use Illuminate\Support\Str;
+use Marketplaceful\Models\Order;
 use Marketplaceful\Actions\CreateConversation;
-use Marketplaceful\Models\Listing;
-use Marketplaceful\Models\Conversation;
 
 class CreateConversationForm extends Component
 {
-    public Listing $listing;
+    public Order $order;
 
-    public $state = [
-        'body' => '',
-    ];
+    public $message;
 
     public function createConversation(CreateConversation $creator)
     {
         $this->resetErrorBag();
 
-        $creator->create(
+        $conversation = $creator->create(
             Auth::user(),
-            $this->listing,
-            $this->state,
+            $this->order,
+            ['body' => $this->message]
         );
 
-        return redirect(route('conversations.index'));
+        if (Auth::user()->providesOrder($this->order)) {
+            return redirect(route('user.sales.show', $this->order));
+        } else {
+            return redirect(route('user.orders.show', $this->order));
+        }
     }
 
     public function render()
